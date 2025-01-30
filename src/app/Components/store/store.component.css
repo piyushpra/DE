@@ -1,0 +1,303 @@
+.container.section {
+    display: flex;
+    margin-top: 2%;
+}
+
+.faded {
+    animation: faded 1s ease-in-out;
+    transition: all 0.5s;
+}
+
+@keyframes faded {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.st {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    transition: all 0.5s;
+    padding: 0;
+}
+
+.comp-1 {
+    text-transform: capitalize;
+    display: flex;
+    padding: 30px;
+    color: black;
+    text-align: center;
+}
+
+.comp-1-st {
+    width: 100%;
+    line-height: 2;
+    display: flex;
+}
+
+.amount>input[type="number"] {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: solid 1px;
+}
+
+.search>form {
+    display: flex;
+}
+
+.search>form>input[type="search"] {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-bottom: solid 1px;
+}
+
+.search>form>.search-btn {
+    width: 20%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.card {
+    background-color: #f5f4f7;
+    padding: 20px;
+    text-align: center;
+}
+
+.card_view {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-details {
+    margin: 2% auto;
+    padding: 0px 10px;
+}
+
+.flip-card {
+    background-color: transparent;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    position: relative;
+    background-color: #bbb;
+    color: black;
+}
+
+.flip-card-back {
+    background: linear-gradient(180deg, #7cbce4c7, #84c53a82);
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-details {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: auto;
+    margin-bottom: 5%;
+    height: fit-content;
+    background-color: #ffffff96;
+    padding: 10px;
+}
+
+.product-image {
+    width: 100%;
+}
+
+.product-name {
+    font-size: 26px;
+}
+
+.product-button {
+    text-transform: capitalize;
+    padding: 3% 5%;
+    border-radius: 5%;
+    border: solid white 1px;
+    outline: none;
+}
+
+#nav-tabs-link {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.nav.nav-tabs .active, .nav.nav-tabs .active a {
+    color: white!important;
+    background-color: #6ca6b4;
+}
+
+.tab-content>.active {
+    opacity: 1;
+}
+
+.tab-content {
+    padding: 15px;
+    border-left: solid 1px lightgrey;
+}
+.nav.nav-tabs {
+    display: block;
+    margin-right: 15px;
+    border: none;
+}
+
+#nav-tabs-link > a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.brands-list,
+.models-list,
+.warranty-list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.brands-item,
+.models-item,
+.warranty-duration {
+    margin: 5px 10px;
+}
+
+.button {
+    width: 100px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    transition: all 0.5s;
+}
+
+.button>i {
+    font-size: 12px;
+}
+
+.button:focus,
+.button:hover {
+    border: none;
+    outline: none;
+}
+
+.searchFor:active {
+    transition: all 0.5s;
+    width: 100%;
+}
+
+.modal {
+    background: linear-gradient(180deg, #7cbce4c7, #84c53a82);
+}
+
+.modal-header {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    background-color: transparent;
+    border: none;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.filter {
+    margin-right: auto;
+    align-self: center;
+}
+
+.main_body {
+    display: flex;
+}
+
+.product_image>img {
+    width: 100%;
+}
+
+.product-other-details {
+    padding: 30px;
+    margin: auto;
+    color: black;
+}
+
+.product-other-details>hr {
+    margin: 3rem 0;
+}
+
+.product-model-name {
+    font-weight: 700;
+}
+
+.product-heading {
+    color: #7cbce4;
+}
+
+
+
+@media only screen and (max-width: 992px) {
+    .product-name {
+        font-size: 18px;
+    }
+    .product_image.col-5 {
+        margin: auto;
+    }
+    .product-other-details {
+        display: flex;
+        width: 100%;
+    }
+    .product-info {
+        margin-right: 15px !important;
+        padding-right: 15px;
+        border-right: solid 1px lightgrey;
+        margin: auto;
+    }
+    .main_body {
+        display: block;
+    }
+
+}
