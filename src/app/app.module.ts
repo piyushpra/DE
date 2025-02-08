@@ -9,6 +9,7 @@ import { StoreComponent } from './Components/store/store.component';
 import { DatabaseComponent } from './Components/database/database.component';
 import { ContactUsComponent } from './Components/contact-us/contact-us.component';
 import { FooterComponent } from './Components/footer/footer.component';
+import { GeoLocationComponent } from './geo-location/geo-location.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterComponent } from './Components/footer/footer.component';
     StoreComponent,
     DatabaseComponent,
     ContactUsComponent,
-    FooterComponent
+    FooterComponent,
+    GeoLocationComponent
   ],
   imports: [
     BrowserModule,
