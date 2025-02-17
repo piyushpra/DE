@@ -1,56 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+declare var H: any;
 
 @Component({
     selector: 'app-geo-location',
     templateUrl: './geo-location.component.html',
     styleUrls: ['./geo-location.component.css']
 })
-export class GeoLocationComponent {
-    // apiKey : string = "5mLPJXEk5e5WB8-hBGYPoMgHobI73LjF0P4jEt2Bt74";
-    // window.apiKey = "5mLPJXEk5e5WB8-hBGYPoMgHobI73LjF0P4jEt2Bt74";
+export class GeoLocationComponent implements OnInit {
+    showWarning = false;  // Flag to show/hide the alert warning
+    apiKey = '5mLPJXEk5e5WB8-hBGYPoMgHobI73LjF0P4jEt2Bt74';
 
-    // moveMapToBerlin(map){
-    //     map.setCenter({lat:52.5159, lng:13.3777});
-    //     map.setZoom(14);
-    // }
 
-    // var alertWarningUi = document.getElementById('alert-warning');
+    ngOnInit(): void {
+        if (!this.apiKey) {
+        this.showWarning = true;
+        } else {
+        this.initializeMap();
+        }
+    }
 
-    // if(!apiKey){
-    // alertWarningUi.style.display= 'block';
-    // } else{
-    // alertWarningUi.style.display = 'none';
-    // }
+    hideAlert(): void {
+        this.showWarning = false;
+    }
 
-    // var platform = new H.service.Platform({
-    // apikey: window.apiKey
-    // });
+    initializeMap(): void {
 
-    // var defaultLayers = platform.createDefaultLayers();
+        const platform = new H.service.Platform({
+        apikey: this.apiKey
+        });
 
-    //Step 2: initialize a map - this map is centered over Europe
-    // var map = new H.Map(document.getElementById('map'),
-    // defaultLayers.vector.normal.map,{
-    // center: {lat:50, lng:5},
-    // zoom: 4,
-    // pixelRatio: window.devicePixelRatio || 1
-    // });
-    // add a resize listener to make sure that the map occupies the whole container
-    // window.addEventListener('resize', () => map.getViewPort().resize());
+        const defaultLayers = platform.createDefaultLayers();
 
-    //Step 3: make the map interactive
-    // MapEvents enables the event system
-    // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-    // var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+        const map = new H.Map(
+        document.getElementById('map'),
+        defaultLayers.vector.normal.map,
+        {
+            center: { lat: 29.0588, lng: 76.0856 },
+            zoom: 14,
+            pixelRatio: window.devicePixelRatio || 1
+        }
+        );
 
-    // Create the default UI components
-    // var ui = H.ui.UI.createDefault(map, defaultLayers);
+        window.addEventListener('resize', () => map.getViewPort().resize());
 
-    // Now use the map as required...
-    // window.onload = function () {
-    // moveMapToBerlin(map);
-    // }
+        const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
-    // https://jsfiddle.net/rbjuc3v1/1/
-    //
+        const ui = H.ui.UI.createDefault(map, defaultLayers);
+    }
 }
