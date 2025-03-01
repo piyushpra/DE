@@ -1,50 +1,9 @@
 <section id="markers-on-the-map">
-    <div class="page-header">
-        <div id="alert-warning" style="display: none">
-            <span id="alert" onclick="this.parentElement.style.display='none';">&times;</span>
-        </div>
-    </div>
+  <div class="page-header">
+      <div id="alert-warning" style="display: none">
+          <span id="alert" onclick="this.parentElement.style.display='none';">&times;</span>
+      </div>
+  </div>
 
-    <div id="map"></div>
-    <script>
-        function moveMapToBerlin(map) {
-        map.setCenter({ lat: 52.5159, lng: 13.3777 });
-        map.setZoom(14);
-        }
-        window.apiKey = "5mLPJXEk5e5WB8-hBGYPoMgHobI73LjF0P4jEt2Bt74";
-        console.log("window.apiKey");
-
-        var alertWarningUi = document.getElementById("alert-warning");
-
-        if (!apiKey) {
-        alertWarningUi.style.display = "block";
-        } else {
-        alertWarningUi.style.display = "none";
-        }
-
-        var platform = new H.service.Platform({
-        apikey: window.apiKey,
-        });
-
-        var defaultLayers = platform.createDefaultLayers();
-
-        var map = new H.Map(
-        document.getElementById("map"),
-        defaultLayers.vector.normal.map,
-        {
-            center: { lat: 29.0588, lng: 76.0856 },
-            zoom: 4,
-            pixelRatio: window.devicePixelRatio || 1,
-        }
-        );
-
-        window.addEventListener("resize", () => map.getViewPort().resize());
-        var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
-
-        var ui = H.ui.UI.createDefault(map, defaultLayers);
-        window.onload = function () {
-        moveMapToBerlin(map);
-        };
-
-    </script>
+  <div id="map" style="width: 100%; height: 500px;"></div>
 </section>

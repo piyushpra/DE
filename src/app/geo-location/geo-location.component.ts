@@ -8,15 +8,14 @@ declare var H: any;
     styleUrls: ['./geo-location.component.css']
 })
 export class GeoLocationComponent implements OnInit {
-    showWarning = false;  // Flag to show/hide the alert warning
+    showWarning = false;  
     apiKey = '5mLPJXEk5e5WB8-hBGYPoMgHobI73LjF0P4jEt2Bt74';
-
 
     ngOnInit(): void {
         if (!this.apiKey) {
-        this.showWarning = true;
+            this.showWarning = true;
         } else {
-        this.initializeMap();
+            this.initializeMap();
         }
     }
 
@@ -25,27 +24,42 @@ export class GeoLocationComponent implements OnInit {
     }
 
     initializeMap(): void {
-
         const platform = new H.service.Platform({
-        apikey: this.apiKey
+            apikey: this.apiKey
         });
 
         const defaultLayers = platform.createDefaultLayers();
 
         const map = new H.Map(
-        document.getElementById('map'),
-        defaultLayers.vector.normal.map,
-        {
-            center: { lat: 29.0588, lng: 76.0856 },
-            zoom: 14,
-            pixelRatio: window.devicePixelRatio || 1
-        }
+            document.getElementById('map'),
+            defaultLayers.vector.normal.map,
+            {
+                center: { lat: 28.462601639467074, lng: 77.02411266554478 },  
+                zoom: 18,
+                pixelRatio: window.devicePixelRatio || 1
+            }
         );
 
         window.addEventListener('resize', () => map.getViewPort().resize());
 
         const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
-
         const ui = H.ui.UI.createDefault(map, defaultLayers);
+
+        // ✅ Add Marker with a Fixed Name Label (Bubble)
+        this.addMarkerWithLabel(map, ui, 28.462601639467074, 77.02411266554478, "My Location");
+    }
+
+    addMarkerWithLabel(map: any, ui: any, lat: number, lng: number, label: string): void {
+        // ✅ Create a marker at the location
+        const marker = new H.map.Marker({ lat, lng });
+        map.addObject(marker);
+
+        // ✅ Create a fixed info bubble with the name
+        const bubble = new H.ui.InfoBubble({ lat, lng }, {
+            content: `<b style="color:blue;background-color:transparent;">${label}</b>`  // Displayed name inside the bubble
+        });
+
+        // ✅ Add the bubble to the UI (stays fixed even on zoom)
+        ui.addBubble(bubble);
     }
 }
