@@ -1,71 +1,50 @@
 <section id="markers-on-the-map">
     <div class="page-header">
-    <div id="alert-warning" style="display: none">
-        <span id="alert" onclick="this.parentElement.style.display='none';">&times;</span>
-        <strong>Warning!</strong><br />Please paste your apiKey in the Javascript code.
+        <div id="alert-warning" style="display: none">
+            <span id="alert" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
     </div>
-        <h1>Map at a specified location</h1>
-        <p>Display a map at a specified location and zoom level</p>
-    </div>
-    <p>
-        This example displays a movable map initially centered on the
-        <b>Brandenburg Gate</b> in the centre of Berlin
-        <i>(52.5159°N, 13.3777°E)</i>
-    </p>
+
     <div id="map"></div>
-    <h3>Code</h3>
-    <p>
-        The <code>map.setCenter()</code> method and
-        <code>map.setZoom() </code>method are able to control the location of the
-        map.<br />
-    </p>
-    <script type="text/javascript">
-        /**
- * Moves the map to display over Berlin
- *
- * @param  {H.Map} map      A HERE Map instance within the application
- */
-function moveMapToBerlin(map){
-    map.setCenter({lat:52.5159, lng:13.3777});
-    map.setZoom(14);
-  }
-  window.apiKey = "5mLPJXEk5e5WB8-hBGYPoMgHobI73LjF0P4jEt2Bt74";
+    <script>
+        function moveMapToBerlin(map) {
+        map.setCenter({ lat: 52.5159, lng: 13.3777 });
+        map.setZoom(14);
+        }
+        window.apiKey = "5mLPJXEk5e5WB8-hBGYPoMgHobI73LjF0P4jEt2Bt74";
+        console.log("window.apiKey");
 
-  var alertWarningUi = document.getElementById('alert-warning');
+        var alertWarningUi = document.getElementById("alert-warning");
 
-  if(!apiKey){
-    alertWarningUi.style.display= 'block';
-  } else{
-    alertWarningUi.style.display = 'none';
-  }
+        if (!apiKey) {
+        alertWarningUi.style.display = "block";
+        } else {
+        alertWarningUi.style.display = "none";
+        }
 
-  var platform = new H.service.Platform({
-    apikey: window.apiKey
-  });
+        var platform = new H.service.Platform({
+        apikey: window.apiKey,
+        });
 
-  var defaultLayers = platform.createDefaultLayers();
+        var defaultLayers = platform.createDefaultLayers();
 
-  //Step 2: initialize a map - this map is centered over Europe
-  var map = new H.Map(document.getElementById('map'),
-    defaultLayers.vector.normal.map,{
-    center: {lat:29.0588, lng:76.0856},
-    zoom: 4,
-    pixelRatio: window.devicePixelRatio || 1
-  });
-  // add a resize listener to make sure that the map occupies the whole container
-  window.addEventListener('resize', () => map.getViewPort().resize());
+        var map = new H.Map(
+        document.getElementById("map"),
+        defaultLayers.vector.normal.map,
+        {
+            center: { lat: 29.0588, lng: 76.0856 },
+            zoom: 4,
+            pixelRatio: window.devicePixelRatio || 1,
+        }
+        );
 
-  //Step 3: make the map interactive
-  // MapEvents enables the event system
-  // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-  var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+        window.addEventListener("resize", () => map.getViewPort().resize());
+        var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
-  // Create the default UI components
-  var ui = H.ui.UI.createDefault(map, defaultLayers);
+        var ui = H.ui.UI.createDefault(map, defaultLayers);
+        window.onload = function () {
+        moveMapToBerlin(map);
+        };
 
-  // Now use the map as required...
-  window.onload = function () {
-    moveMapToBerlin(map);
-  }
     </script>
 </section>
