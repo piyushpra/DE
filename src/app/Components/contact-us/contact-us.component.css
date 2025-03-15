@@ -67,7 +67,7 @@
 }
 
 .get-in-touch {
-    width: 50%;
+    padding: 5%;
 }
 
 .text-box {
@@ -92,4 +92,17 @@
     padding: 10px 30px;
     border: none;
     border-radius: 3px;
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+    .contact-info {
+        display: block;
+        margin-bottom: 100px;
+    }
+
+    .contact-box {
+        margin-bottom: 50px;
+    }
 }

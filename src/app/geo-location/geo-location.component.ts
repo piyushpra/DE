@@ -35,7 +35,7 @@ export class GeoLocationComponent implements OnInit {
             defaultLayers.vector.normal.map,
             {
                 center: { lat: 28.462601639467074, lng: 77.02411266554478 },  
-                zoom: 18,
+                zoom: 16,
                 pixelRatio: window.devicePixelRatio || 1
             }
         );
@@ -45,21 +45,18 @@ export class GeoLocationComponent implements OnInit {
         const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
         const ui = H.ui.UI.createDefault(map, defaultLayers);
 
-        // ✅ Add Marker with a Fixed Name Label (Bubble)
         this.addMarkerWithLabel(map, ui, 28.462601639467074, 77.02411266554478, "My Location");
     }
 
     addMarkerWithLabel(map: any, ui: any, lat: number, lng: number, label: string): void {
-        // ✅ Create a marker at the location
         const marker = new H.map.Marker({ lat, lng });
         map.addObject(marker);
 
-        // ✅ Create a fixed info bubble with the name
         const bubble = new H.ui.InfoBubble({ lat, lng }, {
-            content: `<b style="color:blue;background-color:transparent;">${label}</b>`  // Displayed name inside the bubble
+            content: `<b>${label}</b>`  // Displayed name inside the bubble
         });
 
-        // ✅ Add the bubble to the UI (stays fixed even on zoom)
+        bubble.setClosable(false);
         ui.addBubble(bubble);
     }
 }
