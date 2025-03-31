@@ -26,7 +26,7 @@
     "msnodesqlv8": "^3.1.0",
     "mssql": "^11.0.1",
     "net": "^1.0.2",
-    "ngx-slick-carousel": "^17.0.0",
+    "ngx-slick-carousel": "^15.0.0",
     "os": "^0.1.2",
     "require": "^0.4.4",
     "rxjs": "~7.5.0",
