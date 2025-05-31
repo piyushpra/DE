@@ -1,0 +1,54 @@
+<header [class.stickyHeader]="headerSticky">
+    <section class="top-header" [class.isDivHide]="isHide">
+        <div class="container">
+            <div class="location">
+                <span class="location-icon">
+                    <i class="fa-solid fa-location-dot"></i> gurgaon
+                </span>
+            </div>
+            <div class="mail">
+                <span class="mail-icon">
+                    <i class="fa-solid fa-envelope"></i> abc123@gmail.com
+                </span>
+            </div>
+            <div class="phone">
+                <span class="phone-icon">
+                    <i class="fa-solid fa-phone"></i> +91 1234567890
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-header" [class.fullHeight]="isHeightFull">
+
+        <nav class="container navbar navbar-expand-lg">
+            <div class="navbar-header">
+                <div class="site-logo">
+                    <a routerLink="/">
+                        <img src="../../../assets/images/fuelectric-3.png" alt="FuElectric">
+                    </a>
+                </div>
+                <button class="nav_b navbar-toggler" data-toggle="collapse" data-target="#mybar"
+                    (click)="isMenuCollapsed = !isMenuCollapsed">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="mybar" [ngClass]="{'show':isMenuCollapsed}">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a routerLink="/" id="home" class="nav-link" (click)="isMenuCollapsed = !isMenuCollapsed">home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/store" id="store" class="nav-link" (click)="isMenuCollapsed = !isMenuCollapsed">store</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" (click)="isMenuCollapsed = !isMenuCollapsed">service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/contact" class="nav-link" (click)="isMenuCollapsed = !isMenuCollapsed">contact us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+</header>

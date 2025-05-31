@@ -1,0 +1,52 @@
+<div class="product-form-wrapper">
+  <h2>Add New Product</h2>
+
+  <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+    <div class="form-group">
+      <label for="modelNumber">Model Number</label>
+      <input
+        type="text"
+        id="modelNumber"
+        name="model_number"
+        [(ngModel)]="product.model_number"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="modelName">Model Name</label>
+      <input
+        type="text"
+        id="modelName"
+        name="model_name"
+        [(ngModel)]="product.model_name"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        name="description"
+        [(ngModel)]="product.description"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input
+        type="number"
+        id="amount"
+        name="amount"
+        [(ngModel)]="product.amount"
+        required
+      />
+    </div>
+
+    <button type="submit" [disabled]="!productForm.form.valid">Submit</button>
+  </form>
+
+  <p *ngIf="submitted" style="color: green;">Product added successfully!</p>
+</div>

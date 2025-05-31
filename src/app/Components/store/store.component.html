@@ -1,0 +1,176 @@
+<section class="container section">
+    <div class="filter">
+        <button class="button" data-bs-toggle="modal" data-bs-target="#filter"><i class="fa-solid fa-filter"></i>
+            filter</button>
+    </div>
+    <div class="search">
+        <form action="">
+            <input class="searchFor" type="search" name="search" placeholder="Search..">
+            <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+</section>
+
+<div class="modal fade" id="filter" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> -->
+            <div class="modal-body">
+                <section class="comp-1">
+                    <div class="comp-1-st">
+                        <ul class="nav nav-tabs">
+                            <li id="nav-tabs-link" class="active"><a data-toggle="tab" href="#brands">Brand</a></li>
+                            <li id="nav-tabs-link"><a data-toggle="tab" href="#models">Model</a></li>
+                            <li id="nav-tabs-link"><a data-toggle="tab" href="#amount">Amount</a></li>
+                            <li id="nav-tabs-link"><a data-toggle="tab" href="#warranty">Warranty</a></li>
+                        </ul>
+                        
+                        <div class="tab-content">
+                            <div id="brands" class="tab-pane fade in active">
+                                <div class="brands">
+                                    <ul class="brands-list">
+                                        <li class="brands-item">
+                                            <input type="checkbox"> brand1
+                                        </li>
+                                        <li class="brands-item">
+                                            <input type="checkbox"> brand2
+                                        </li>
+                                        <li class="brands-item">
+                                            <input type="checkbox"> brand3
+                                        </li>
+                                        <li class="brands-item">
+                                            <input type="checkbox"> brand4
+                                        </li>
+                                        <li class="brands-item">
+                                            <input type="checkbox"> brand5
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="models" class="tab-pane fade">
+                                <div class="models">
+                                    <ul class="models-list">
+                                        <li class="models-item">
+                                            <input type="checkbox"> model1
+                                        </li>
+                                        <li class="models-item">
+                                            <input type="checkbox"> model2
+                                        </li>
+                                        <li class="models-item">
+                                            <input type="checkbox"> model3
+                                        </li>
+                                        <li class="models-item">
+                                            <input type="checkbox"> model4
+                                        </li>
+                                        <li class="models-item">
+                                            <input type="checkbox"> model5
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>  
+                            <div id="amount" class="tab-pane fade">
+                                <input type="number">
+                            </div>
+                            <div id="warranty" class="tab-pane fade">
+                                <div class="warranty">
+                                    <ul class="warranty-list">
+                                        <li class="warranty-duration">
+                                            <input type="checkbox"> 12months
+                                        </li>
+                                        <li class="warranty-duration">
+                                            <input type="checkbox"> 24months
+                                        </li>
+                                        <li class="warranty-duration">
+                                            <input type="checkbox"> 36months
+                                        </li>
+                                        <li class="warranty-duration">
+                                            <input type="checkbox"> 48months
+                                        </li>
+                                        <li class="warranty-duration">
+                                            <input type="checkbox"> 72months
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="container st" [class.faded]="storeAnimation">
+    <section class="comp-2">
+        <div class="card_view">
+            <!-- <div class="formData" ng-app="dynamicProducts" ng-controller="products" ng-init="fetchdata()">
+            </div> -->
+            <!-- <script>
+                var app = angular.module('dynamicProducts', []);
+                app.controller('products', function ($scope, $http) {
+                    $scope.fetchdata = function () {
+                        $http.get('database.php').success(function (data) {
+                            $scope.pData = data;
+                        })
+                    }
+                })
+            </script> -->
+            <div class="card-details col-6 col-sm-6 col-lg-4" *ngFor="let product of productList; index as i">
+                <div class="flip-card" [class.flipped]="rotateAnimation">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="../../../assets/images/png4.png" alt="" class="product-image">
+                            <div class="product-details">
+                                <p class="product-name"><b>{{product.pName}}</b></p>
+                                <p class="product-amount">&#8377; {{product.pAmount}}</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <form action="">
+                                <button type="button" class="product-button" data-bs-toggle="modal"
+                                    [attr.data-bs-target]="'#card1'+i">more details</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" [id]="'card1'+i" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="main_body">
+                                    <div class="product_image col-5">
+                                        <img src="../../../assets/images/png4.png" alt="Product Image">
+                                    </div>
+                                    <div class="product-other-details col-7">
+                                        <div class="product-info">
+                                            <p class="product-model-name">PDT: ABC123</p>
+                                            <h3 class="product-heading"><b>Product Name</b></h3>
+                                            <p class="Product-Amount">&#8377; 1000</p>
+                                        </div>
+                                        <hr>
+                                        <div class="product-description">
+                                            <p class="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                                Ducimus, fuga error culpa obcaecati at dicta porro ipsam similique
+                                                repellendus dolorum nobis deserunt. Natus sed commodi, itaque veniam
+                                                repellendus dolore voluptatem!
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</section>

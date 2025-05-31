@@ -1,0 +1,108 @@
+.contact-section {
+    padding-top: 100px;
+    background-color: #f2f3f3;
+}
+
+.contact-section .container h1 {
+    text-align: center;
+    font-weight: 800;
+}
+
+.contact-section .container h2 {
+    font-weight: 700;
+    text-align: center;
+}
+
+.contact-section .container hr {
+    width: 5%;
+    margin: 3rem auto;
+    text-transform: none;
+    border-top: 3px solid #89c741;
+}
+
+.message-us {
+    text-align: center;
+    text-transform: none;
+}
+
+.contact-info {
+    display: flex;
+    margin-bottom: 100px;
+    justify-content: space-evenly;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-box {
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 20px #e1e1e1;
+}
+
+.contact-box > i {
+    font-size: 50px;
+    color: #89c741;
+    padding-bottom: 15px;
+}
+
+.contact-details {
+    text-transform: lowercase;
+}
+
+.text-box.name {
+    display: flex;
+}
+
+.formname {
+    width: 100%;
+}
+
+.formname:nth-child(1) {
+    margin-right: 20px;
+}
+
+.get-in-touch {
+    padding: 5%;
+}
+
+.text-box {
+    width: 100%;
+    font-weight: 500;
+}
+
+.text-label {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.text-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+}
+
+.text-box.submit > input {
+    background-color: #6ca6b4;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 3px;
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+    .contact-info {
+        display: block;
+        margin-bottom: 100px;
+    }
+
+    .contact-box {
+        margin-bottom: 50px;
+    }
+}

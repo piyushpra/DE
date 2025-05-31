@@ -1,0 +1,254 @@
+<div id="sw_det" class="carousel slider carousel-fade section" data-interval="1000">
+
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <img src="../assets/images/battlefield_1_1920x1080.jpg" alt="\" class="d-block w-100">
+            <div class="product_more_detail">
+                <img class="product_more_detail_img topToDown" src="../assets/images/bg-1.png" alt="">
+                <div class="pdt_det">
+                    <p class="bottomToUp">Battlefield 1</p>
+                    <p class="bottomToUp">&#8377;8000</p>
+                    <p class="bottomToUp">this is little about product description</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="../assets/images/Back-4-Blood.jpg" alt="\" class="d-block w-100">
+            <div class="product_more_detail">
+                <img class="product_more_detail_img topToDown" src="../assets/images/bg-2.png" alt="">
+                <div class="pdt_det">
+                    <p class="bottomToUp">back 4 blood</p>
+                    <p class="bottomToUp">&#8377;8000</p>
+                    <p class="bottomToUp">this is little about product description</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="../assets/images/681867.jpg" alt="\" class="d-block w-100">
+            <div class="product_more_detail">
+                <img class="product_more_detail_img topToDown" src="../assets/images/bg-3.png" alt="">
+                <div class="pdt_det">
+                    <p class="bottomToUp">game</p>
+                    <p class="bottomToUp">&#8377;8000</p>
+                    <p class="bottomToUp">this is little about product description</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="carousel-conrollers">
+        <button class="carousel-control-prev carousel-1-controller" type="button" data-bs-target="#sw_det"
+            data-bs-slide="prev">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+        <button class="carousel-control-next carousel-1-controller" type="button" data-bs-target="#sw_det"
+            data-bs-slide="next">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+
+    <div class="up_arrow" (click)="goUp()">
+        <span class="first_arrow">
+            <i class="fa-solid fa-chevron-up"></i>
+        </span>
+        <span class="second_arrow">
+            <i class="fa-solid fa-chevron-up"></i>
+        </span>
+    </div>
+</div>
+
+
+<section class="service">
+    <div class="service-bg"></div>
+    <p class="display-4 service-heading"><span class="highlight">our</span> service</p>
+    <h4 class="service-punch">easy and effective way to get your product</h4>
+    <div class="about-service">
+        <div class="services-details" id="secure-payments" [class.fallingDown1]="fallDown">
+            <div class="service-img">
+                <img class="services-details-image" src="../../../assets/images/service3.png" alt="">
+            </div>
+            <div class="service-dat">
+                <h3 class="services-details-heading">secure payments</h3>
+                <p class="services-description">multiple payment options available</p>
+            </div>
+        </div>
+        <div class="services-details" id="fast-service" [class.fallingDown2]="fallDown">
+            <div class="service-img">
+                <img class="services-details-image" src="../../../assets/images/service12.png" alt="">
+            </div>
+            <div class="service-dat">
+                <h3 class="services-details-heading">fast service</h3>
+                <p class="services-description">product delivery at your dorstep with-in a day</p>
+            </div>
+        </div>
+        <div class="services-details" id="award-winning" [class.fallingDown3]="fallDown">
+            <div class="service-img">
+                <img class="services-details-image" src="../../../assets/images/service1.png" alt="">
+            </div>
+            <div class="service-dat">
+                <h3 class="services-details-heading">award winning</h3>
+                <p class="services-description">18+ experience, providing best products with quality</p>
+            </div>
+        </div>
+        <div class="services-details" id="affordable-services" [class.fallingDown4]="fallDown">
+            <div class="service-img">
+                <img class="services-details-image" src="../../../assets/images/service4.png" alt="">
+            </div>
+            <div class="service-dat">
+                <h3 class="services-details-heading">affordable services</h3>
+                <p class="services-description">services comes under your budget on testing, installation, delivery
+                    etc.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section_brand section" id="showUp">
+    <p class="brand_heading display-4 col-12">product <span>brands</span></p>
+    <div class="container col-12">
+        <div class="brand_box">
+
+            <div *ngFor="let list of brandList; index as i" class="brand{{i}} col-6 col-md-4"
+                [class.changeStyle]="bubbles">
+                <div class="brand-hold">
+                    <img src="../assets/images/battlefield_1_1920x1080.jpg" alt="" class="brand_image">
+                    <div class="brand_det">
+                        <a routerLink="/store" class="st_lok">
+                            <h3 class="brand_name">{{list.titles}}</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="why-us-section">
+    <div class="container" [class.fade-in]="fadeIn">
+        <div class="why-us-topdiv">
+            <p class="why-us-head">
+                why <span>Us</span> !
+            </p>
+            <p class="why-us-description">
+                Shop with a wide range of innovative products in the power backup either residential or car. We're
+                trustworthy because
+            </p>
+        </div>
+        <div class="certified" [class.pop-in]="popIn">
+            <div id="certified-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-caption carousel-caption-bybrand">
+                            <p>certified by brand</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-caption carousel-caption-bybrand">
+                            <p>certified by brand</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-caption carousel-caption-bybrand">
+                            <p>certified by brand</p>
+                        </div>
+                    </div>
+                </div>
+
+                <ol class="carousel-indicators certified-carousel-indicators">
+                    <li data-bs-target="#certified-carousel" data-bs-slide-to="0" class="certified-brand-image active">
+                    </li>
+                    <li data-bs-target="#certified-carousel" data-bs-slide-to="1" class="certified-brand-image"></li>
+                    <li data-bs-target="#certified-carousel" data-bs-slide-to="2" class="certified-brand-image"></li>
+                </ol>
+                <button class="carousel-control-prev certified-carousel-control" data-bs-target="#certified-carousel" role="button"
+                    data-bs-slide="prev">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button class="carousel-control-next certified-carousel-control" data-bs-target="#certified-carousel" role="button"
+                    data-bs-slide="next">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="nl-cu">
+    <footer>
+        <div class="newsletter">
+            <div class="container newsletter-main">
+                <form action="" class="nl-sbfm">
+                    <div class="col-8 nlem-space">
+                        <input type="text" class="nl-em" placeholder="One Way to Stay Upated...">
+                    </div>
+                    <div class="col-3 nlsb-space">
+                        <button type="submit" class="nlsb">Stay Updated</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="ft-nvbr">
+            <div class="container">
+                <div class="py-5">
+                    <div class="row">
+                    <div class="col-6 col-lg-2 mb-3">
+                        <h5>Logo</h5>
+                        <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Products</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-lg-2 mb-3">
+                        <h5>Section</h5>
+                        <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-lg-2 mb-3">
+                        <h5>FAQs</h5>
+                        <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">How much price we get?</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Is there any service charges?</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">What's the warranty available to product?</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Is home delhivery available?</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Any additional accessories comes or not?</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-lg-5 offset-md-1 mb-3">
+                        <form>
+                        <h5>Subscribe to our newsletter</h5>
+                        <p>Monthly digest of what's new and exciting from us.</p>
+                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                            <label for="newsletter1" class="visually-hidden">Email address</label>
+                            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                        </form>
+                    </div>
+                    </div>
+                
+                    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                    <p>© 2024 Company, Inc. All rights reserved.</p>
+                    <ul class="list-unstyled d-flex">
+                        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+                        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+                        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</section> -->
